@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InstantVideoGen - Generator Video Instan</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-video"></i> InstantVideoGen</h1>
+            <p class="subtitle">Buat video sederhana langsung di browser Anda. Tidak perlu upload, tidak perlu server.</p>
+        </header>
+
+        <main>
+            <section class="control-panel">
+                <div class="input-group">
+                    <label for="textInput"><i class="fas fa-font"></i> Teks untuk Video:</label>
+                    <textarea id="textInput" placeholder="Masukkan teks Anda di sini... Contoh: 'Selamat Datang di Video Saya!'" rows="3">Contoh Video Dinamis</textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="bgColor"><i class="fas fa-palette"></i> Warna Latar:</label>
+                    <input type="color" id="bgColor" value="#3498db">
+                </div>
+
+                <div class="input-group">
+                    <label for="duration"><i class="fas fa-clock"></i> Durasi (detik):</label>
+                    <input type="range" id="duration" min="2" max="15" value="5">
+                    <span id="durationValue">5 detik</span>
+                </div>
+
+                <div class="button-group">
+                    <button id="previewBtn" class="btn secondary"><i class="fas fa-play"></i> Pratinjau Frame</button>
+                    <button id="generateBtn" class="btn primary"><i class="fas fa-cogs"></i> Hasilkan Video</button>
+                    <button id="downloadBtn" class="btn success" disabled><i class="fas fa-download"></i> Unduh Video</button>
+                </div>
+            </section>
+
+            <section class="output-area">
+                <div class="preview-container">
+                    <h3><i class="fas fa-eye"></i> Pratinjau</h3>
+                    <canvas id="previewCanvas" width="640" height="360">
+                        Browser Anda tidak mendukung Canvas.
+                    </canvas>
+                    <p id="previewText">Pratinjau akan muncul di sini.</p>
+                </div>
+
+                <div class="video-container">
+                    <h3><i class="fas fa-film"></i> Video Hasil</h3>
+                    <video id="outputVideo" controls style="display:none; width:100%;"></video>
+                    <p id="videoStatus">Video akan muncul di sini setelah dihasilkan.</p>
+                    <div class="progress-container" style="display:none;">
+                        <div class="progress-bar" id="progressBar"></div>
+                        <p id="progressText">Menyusun frame: 0%</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info">
+                <h3><i class="fas fa-info-circle"></i> Informasi Teknis</h3>
+                <p>Video dihasilkan sepenuhnya di browser Anda menggunakan <strong>FFmpeg.wasm</strong>. Tidak ada data yang dikirim ke server mana pun. Proses mungkin memakan waktu 10-30 detik tergantung panjang video dan performa perangkat.</p>
+                <p class="warning"><i class="fas fa-exclamation-triangle"></i> <strong>Peringatan:</strong> Untuk video pertama, FFmpeg core (~30MB) perlu diunduh. Pastikan koneksi internet stabil.</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>InstantVideoGen v1.0 | Simulasi Teknologi Nexus Core | <span id="status">Status: Siap</span></p>
+        </footer>
+    </div>
+
+    <!-- Load FFmpeg library -->
+    <script src="https://unpkg.com/@ffmpeg/ffmpeg@0.12.4/dist/ffmpeg.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
