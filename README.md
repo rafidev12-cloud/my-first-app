@@ -32,4 +32,35 @@ cd [repo-name]
 # Tambahkan file
 git add .
 git commit -m "Deploy InstantVideoGen"
-git push origin main
+git push origin main# 🎥 InstantVideoGen
+
+Generator video berbasis web 100% client-side menggunakan FFmpeg.wasm.
+
+## 🌐 Live Demo
+**https://rafidev1.github.io/rafidev12-cloud/**
+
+## 🚀 Fitur
+- Generate video langsung di browser
+- Custom teks, warna, durasi
+- Export format MP4
+- Tidak perlu server/upload
+
+## 📁 Cara Pakai
+1. Buka link di atas
+2. Tunggu FFmpeg load (sekali saja)
+3. Masukkan teks & setting
+4. Klik "Hasilkan Video"
+5. Download hasilnya
+
+## 🛠️ Teknologi
+- HTML5 Canvas
+- FFmpeg.wasm
+- Vanilla JavaScript
+
+## ⚠️ Catatan
+- Browser: Chrome/Firefox terbaru
+- Load pertama butuh koneksi (30MB FFmpeg core)
+- Video panjang mungkin butuh waktu render lebih lama
+
+---
+*Dibuat untuk simulasi keamanan Nexus Core*
